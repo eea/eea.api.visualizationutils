@@ -1,3 +1,4 @@
+""" conf.py """
 # -*- coding: utf-8 -*-
 #
 # This file is execfile()d with the current directory set to its
@@ -9,8 +10,8 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys
-import os
+# import sys
+# import os
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -43,7 +44,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'eea.api.visualizationutils'
-copyright = 'laszlocseh (laszlocseh)'
+copyright_text = 'laszlocseh (laszlocseh)'
 author = 'laszlocseh (laszlocseh)'
 
 # The version info for the project you're documenting, acts as replacement for

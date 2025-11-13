@@ -1,111 +1,81 @@
-.. This README is meant for consumption by humans and PyPI. PyPI can render rst files so please do not use Sphinx features.
-   If you want to learn more about writing documentation, please check out: http://docs.plone.org/about/documentation_styleguide.html
-   This text does not appear on PyPI or github. It is a comment.
-
-.. image:: https://github.com/collective/eea.api.visualizationutils/actions/workflows/plone-package.yml/badge.svg
-    :target: https://github.com/collective/eea.api.visualizationutils/actions/workflows/plone-package.yml
-
-.. image:: https://coveralls.io/repos/github/collective/eea.api.visualizationutils/badge.svg?branch=main
-    :target: https://coveralls.io/github/collective/eea.api.visualizationutils?branch=main
-    :alt: Coveralls
-
-.. image:: https://codecov.io/gh/collective/eea.api.visualizationutils/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/collective/eea.api.visualizationutils
-
-.. image:: https://img.shields.io/pypi/v/eea.api.visualizationutils.svg
-    :target: https://pypi.python.org/pypi/eea.api.visualizationutils/
-    :alt: Latest Version
-
-.. image:: https://img.shields.io/pypi/status/eea.api.visualizationutils.svg
-    :target: https://pypi.python.org/pypi/eea.api.visualizationutils
-    :alt: Egg Status
-
-.. image:: https://img.shields.io/pypi/pyversions/eea.api.visualizationutils.svg?style=plastic   :alt: Supported - Python Versions
-
-.. image:: https://img.shields.io/pypi/l/eea.api.visualizationutils.svg
-    :target: https://pypi.python.org/pypi/eea.api.visualizationutils/
-    :alt: License
-
-
 ==========================
 eea.api.visualizationutils
 ==========================
+.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.api.visualizationutils/develop
+  :target: https://ci.eionet.europa.eu/job/eea/job/eea.api.visualizationutils/job/develop/display/redirect
+  :alt: Develop
+.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.api.visualizationutils/master
+  :target: https://ci.eionet.europa.eu/job/eea/job/eea.api.visualizationutils/job/master/display/redirect
+  :alt: Master
 
-An add-on for Plone
+The eea.api.visualizationutils is a Plone add-on
 
-Features
---------
-
-- Can be bullet points
-
-
-Examples
---------
-
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
+.. contents::
 
 
-Documentation
--------------
+Main features
+=============
 
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
-
-
-Translations
-------------
-
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
+1. Provides the vocabulary for the `volto-visualization-utils <https://github.com/eea/volto-visualization-utils>`_ addon
 
 
-Installation
-------------
+Install
+=======
 
-Install eea.api.visualizationutils by adding it to your buildout::
+* Add eea.api.visualizationutils to your eggs section in your buildout and
+  re-run buildout::
 
     [buildout]
+    eggs +=
+      eea.api.visualizationutils
 
-    ...
+* Or via docker::
 
-    eggs =
-        eea.api.visualizationutils
+    $ docker run --rm -p 8080:8080 -e ADDONS="eea.api.visualizationutils" plone
 
+* Install *eea.api.visualizationutils* within Site Setup > Add-ons
 
-and then running ``bin/buildout``
+Eggs repository
+===============
 
-
-Authors
--------
-
-Provided by awesome people ;)
-
-
-Contributors
-------------
-
-Put your name here, you deserve it!
-
-- ?
+- https://pypi.python.org/pypi/eea.api.visualizationutils
+- http://eggrepo.eea.europa.eu/simple
 
 
-Contribute
-----------
+Plone versions
+==============
+It has been developed and tested for Plone 5.
 
-- Issue Tracker: https://github.com/collective/eea.api.visualizationutils/issues
-- Source Code: https://github.com/collective/eea.api.visualizationutils
-- Documentation: https://docs.plone.org/foo/bar
+How to contribute
+=================
+See the `contribution guidelines (CONTRIBUTING.md) <https://github.com/eea/eea.api.visualizationutils/blob/master/CONTRIBUTING.md>`_.
+
+Copyright and license
+=====================
+
+eea.api.visualizationutils (the Original Code) is free software; you can
+redistribute it and/or modify it under the terms of the
+GNU General Public License as published by the Free Software Foundation;
+either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc., 59
+Temple Place, Suite 330, Boston, MA 02111-1307 USA.
+
+The Initial Owner of the Original Code is European Environment Agency (EEA).
+Portions created by Eau de Web are Copyright (C) 2009 by
+European Environment Agency. All Rights Reserved.
 
 
-Support
--------
+Funding
+=======
 
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
+EEA_ - European Environment Agency (EU)
 
-
-License
--------
-
-The project is licensed under the GPLv2.
+.. _EEA: https://www.eea.europa.eu/
+.. _`EEA Web Systems Training`: http://www.youtube.com/user/eeacms/videos?view=1

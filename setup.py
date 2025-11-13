@@ -40,8 +40,8 @@ setup(
     project_urls={
         "PyPI": "https://pypi.org/project/eea.api.visualizationutils/",
         "Source": "https://github.com/collective/eea.api.visualizationutils",
-        "Tracker": "https://github.com/collective/eea.api.visualizationutils/issues",
-        # 'Documentation': 'https://eea.api.visualizationutils.readthedocs.io/en/latest/',
+        "Tracker":
+            "https://github.com/collective/eea.api.visualizationutils/issues",
     },
     license="GPL version 2",
     packages=find_packages("src", exclude=["ez_setup"]),

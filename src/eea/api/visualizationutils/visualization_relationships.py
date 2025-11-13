@@ -72,6 +72,6 @@ class VisualizationRelationships(BrowserView):
     def safe_int(self, value, default):
         """Safe format to int"""
         try:
-            return max(1, int(value))
+            return max(0, int(value))
         except (ValueError, TypeError):
             return default

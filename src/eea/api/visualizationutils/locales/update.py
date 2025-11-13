@@ -1,3 +1,4 @@
+""" Update localization files for eea.api.visualizationutils """
 # -*- coding: utf-8 -*-
 
 import os

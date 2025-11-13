@@ -43,4 +43,18 @@
 
   <!-- -*- extra stuff goes here -*- -->
 
+  <browser:page
+    for="*"
+    name="visualization-relationships"
+    class=".visualization_relationships.VisualizationRelationships"
+    permission="zope2.View"
+    />
+
+  <browser:page
+    for="*"
+    name="visualization-usage"
+    class=".visualization_usage.VisualizationUsage"
+    permission="zope2.View"
+    />
+
 </configure>

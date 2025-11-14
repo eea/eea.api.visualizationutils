@@ -13,10 +13,13 @@ long_description = "\n\n".join(
     ]
 )
 
+NAME = "eea.api.visualizationutils"
+PATH = ["src"] + NAME.split(".") + ["version.txt"]
+VERSION = open(join(*PATH)).read().strip()
 
 setup(
     name="eea.api.visualizationutils",
-    version="1.0a1",
+    version=VERSION,
     description="An add-on for Plone",
     long_description_content_type="text/x-rst",
     long_description=long_description,

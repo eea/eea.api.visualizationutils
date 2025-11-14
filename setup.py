@@ -12,6 +12,8 @@ long_description = "\n\n".join(
         open(join("docs", "HISTORY.txt")).read(),
     ]
 )
+
+NAME = "eea.api.visualizationutils"
 PATH = ["src"] + NAME.split(".") + ["version.txt"]
 VERSION = open(join(*PATH)).read().strip()
 

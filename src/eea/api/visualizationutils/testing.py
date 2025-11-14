@@ -1,3 +1,4 @@
+""" Testing setup for eea.api.visualizationutils """
 # -*- coding: utf-8 -*-
 from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
@@ -9,10 +10,12 @@ import eea.api.visualizationutils
 
 
 class EeaApiVisualizationutilsLayer(PloneSandboxLayer):
+    """Layer for eea.api.visualizationutils tests."""
 
     defaultBases = (PLONE_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
+        """Set up Zope."""
         # Load any other ZCML that is required for your tests.
         # The z3c.autoinclude feature is disabled in the Plone fixture base
         # layer.
@@ -25,6 +28,7 @@ class EeaApiVisualizationutilsLayer(PloneSandboxLayer):
         self.loadZCML(package=eea.api.visualizationutils)
 
     def setUpPloneSite(self, portal):
+        """Set up Plone site."""
         applyProfile(portal, "eea.api.visualizationutils:default")
 
 

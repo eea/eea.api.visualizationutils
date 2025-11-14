@@ -18,6 +18,7 @@ setup(
     name="eea.api.visualizationutils",
     version="1.0a1",
     description="An add-on for Plone",
+    long_description_content_type="text/x-rst",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
     classifiers=[
@@ -40,8 +41,8 @@ setup(
     project_urls={
         "PyPI": "https://pypi.org/project/eea.api.visualizationutils/",
         "Source": "https://github.com/collective/eea.api.visualizationutils",
-        "Tracker": "https://github.com/collective/eea.api.visualizationutils/issues",
-        # 'Documentation': 'https://eea.api.visualizationutils.readthedocs.io/en/latest/',
+        "Tracker":
+            "https://github.com/collective/eea.api.visualizationutils/issues",
     },
     license="GPL version 2",
     packages=find_packages("src", exclude=["ez_setup"]),

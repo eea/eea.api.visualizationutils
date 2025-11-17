@@ -1,9 +1,13 @@
 """Visualizations relationships with connectors"""
 
+import datetime
+import io
+import xlsxwriter
 import os
 import json
 from Products.Five.browser import BrowserView
 from plone import api
+from plone.restapi.serializer.utils import uid_to_url
 
 
 class VisualizationRelationships(BrowserView):
@@ -43,7 +47,7 @@ class VisualizationRelationships(BrowserView):
                     "path": brain.getPath(),
                     "title": obj.Title(),
                     "description": obj.Description(),
-                    "provider_url": provider_url,
+                    "provider_url": uid_to_url(provider_url),
                     "connector": connectors.get(name, None),
                     "file": files.get(name, None),
                 }
@@ -75,3 +79,43 @@ class VisualizationRelationships(BrowserView):
             return max(0, int(value))
         except (ValueError, TypeError):
             return default
+
+    def export_to_xlsx(self):
+        """Export visualizations relationships to xlsx"""
+        connectors = self.get_data("discodataconnector")
+        files = self.get_data("File")
+        visualizations = self.get_visualizations(connectors, files)
+
+        out = io.BytesIO()
+        workbook = xlsxwriter.Workbook(out, {'in_memory': True})
+
+        # add worksheet with report header data
+        worksheet = workbook.add_worksheet('Relationships')
+
+        headers = ['Visualization Title', 'Visualization URL',
+                   'Provider URL', 'Connector', 'File']
+
+        for i, title in enumerate(headers):
+            worksheet.write(0, i, title)
+
+        for i, viz in enumerate(visualizations):
+            worksheet.write(i + 1, 0, viz['title'])
+            worksheet.write(i + 1, 1, viz['url'])
+            worksheet.write(i + 1, 2, viz['provider_url'])
+            conn_title = viz['connector']['title'] if viz['connector'] else '-'
+            file_title = viz['file']['title'] if viz['file'] else '-'
+            worksheet.write(i + 1, 3, conn_title)
+            worksheet.write(i + 1, 4, file_title)
+
+        workbook.close()
+        out.seek(0)
+
+        sh = self.request.response.setHeader
+
+        sh('Content-Type', 'application/vnd.openxmlformats-officedocument.'
+           'spreadsheetml.sheet')
+        fname = "-".join(('Visualization Relationships',
+                          datetime.datetime.now().strftime('%Y-%m-%d')))
+        sh('Content-Disposition', 'attachment; filename=%s.xlsx' % fname)
+
+        return out.read()

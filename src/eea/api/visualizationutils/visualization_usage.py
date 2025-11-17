@@ -1,4 +1,7 @@
 """Visualization status and all used urls"""
+import datetime
+import io
+import xlsxwriter
 import json
 from Products.Five.browser import BrowserView
 from plone import api
@@ -6,6 +9,7 @@ from plone import api
 
 class VisualizationUsage(BrowserView):
     """Visualizations usage and status"""
+
     def __call__(self):
         visualizations = self.get_visualizations()
 
@@ -53,3 +57,37 @@ class VisualizationUsage(BrowserView):
             return max(0, int(value))
         except (ValueError, TypeError):
             return default
+
+    def export_to_xlsx(self):
+        """Export visualizations relationships to xlsx"""
+        visualizations = self.get_visualizations()
+
+        out = io.BytesIO()
+        workbook = xlsxwriter.Workbook(out, {'in_memory': True})
+
+        # add worksheet with report header data
+        worksheet = workbook.add_worksheet('Relationships')
+
+        headers = ['Visualization Title', 'Visualization URL', 'Review state']
+
+        for i, title in enumerate(headers):
+            worksheet.write(0, i, title)
+
+        for i, vis_key in enumerate(visualizations.keys()):
+            for viz in visualizations[vis_key]:
+                worksheet.write(i + 1, 0, viz['title'])
+                worksheet.write(i + 1, 1, viz['url'])
+                worksheet.write(i + 1, 2, viz['review_state'])
+
+        workbook.close()
+        out.seek(0)
+
+        sh = self.request.response.setHeader
+
+        sh('Content-Type', 'application/vnd.openxmlformats-officedocument.'
+           'spreadsheetml.sheet')
+        fname = "-".join(('Visualization Usage',
+                          datetime.datetime.now().strftime('%Y-%m-%d')))
+        sh('Content-Disposition', 'attachment; filename=%s.xlsx' % fname)
+
+        return out.read()

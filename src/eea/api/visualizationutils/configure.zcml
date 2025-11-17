@@ -58,4 +58,20 @@
     permission="zope2.View"
     />
 
+  <browser:page
+    for="*"
+    name="export-visualization-relationships"
+    class=".visualization_relationships.VisualizationRelationships"
+    attribute="export_to_xlsx"
+    permission="cmf.ManagePortal"
+    />
+
+  <browser:page
+    for="*"
+    name="export-visualization-usage"
+    class=".visualization_usage.VisualizationUsage"
+    attribute="export_to_xlsx"
+    permission="cmf.ManagePortal"
+    />
+
 </configure>

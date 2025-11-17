@@ -1,7 +1,11 @@
 Changelog
 =========
 
+1.1 - (2025-11-17)
+---------------------------
+* Change: Develop
+  [laszlocseh]
+
 1.0 - (2025-11-13)
 ---------------------------
 * Change: Release [laszlocseh]
-

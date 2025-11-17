@@ -1,8 +1,9 @@
 """Visualization status and all used urls"""
+import json
 import datetime
 import io
 import xlsxwriter
-import json
+
 from Products.Five.browser import BrowserView
 from plone import api
 

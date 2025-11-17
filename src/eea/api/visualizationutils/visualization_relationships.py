@@ -1,10 +1,11 @@
 """Visualizations relationships with connectors"""
 
+import os
+import json
 import datetime
 import io
 import xlsxwriter
-import os
-import json
+
 from Products.Five.browser import BrowserView
 from plone import api
 from plone.restapi.serializer.utils import uid_to_url

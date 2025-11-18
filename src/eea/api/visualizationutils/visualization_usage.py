@@ -74,11 +74,13 @@ class VisualizationUsage(BrowserView):
         for i, title in enumerate(headers):
             worksheet.write(0, i, title)
 
-        for i, vis_key in enumerate(visualizations.keys()):
-            for viz in visualizations[vis_key]:
+        i = 0
+        for _, items in visualizations.items():
+            for viz in items:
                 worksheet.write(i + 1, 0, viz['title'])
                 worksheet.write(i + 1, 1, viz['url'])
                 worksheet.write(i + 1, 2, viz['review_state'])
+                i += 1
 
         workbook.close()
         out.seek(0)

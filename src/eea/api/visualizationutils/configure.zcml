@@ -48,14 +48,14 @@
     for="*"
     name="visualization-relationships"
     class=".visualization_relationships.VisualizationRelationships"
-    permission="zope2.View"
+    permission="cmf.ManagePortal"
     />
 
   <browser:page
     for="*"
     name="visualization-usage"
     class=".visualization_usage.VisualizationUsage"
-    permission="zope2.View"
+    permission="cmf.ManagePortal"
     />
 
   <browser:page

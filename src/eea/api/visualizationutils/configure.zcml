@@ -48,14 +48,14 @@
     for="*"
     name="visualization-relationships"
     class=".visualization_relationships.VisualizationRelationships"
-    permission="cmf.ManagePortal"
+    permission="zope2.View"
     />
 
   <browser:page
     for="*"
     name="visualization-usage"
     class=".visualization_usage.VisualizationUsage"
-    permission="cmf.ManagePortal"
+    permission="zope2.View"
     />
 
   <browser:page
@@ -63,7 +63,7 @@
     name="export-visualization-relationships"
     class=".visualization_relationships.VisualizationRelationships"
     attribute="export_to_xlsx"
-    permission="cmf.ManagePortal"
+    permission="zope2.View"
     />
 
   <browser:page
@@ -71,7 +71,7 @@
     name="export-visualization-usage"
     class=".visualization_usage.VisualizationUsage"
     attribute="export_to_xlsx"
-    permission="cmf.ManagePortal"
+    permission="zope2.View"
     />
 
 </configure>
